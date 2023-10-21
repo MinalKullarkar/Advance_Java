@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.jspiders.filehandling.create.CreateFileDemo3.java&apos; to &apos;FileInfo.java&apos;&#x0D;&#x0A;- Original project: &apos;filehandling&apos;&#x0D;&#x0A;- Original element: &apos;com.jspiders.filehandling.create.CreateFileDemo3.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.jspiders.filehandling.create.FileInfo.java&apos;" description="Rename compilation unit &apos;CreateFileDemo3.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.jspiders.filehandling.create{CreateFileDemo3.java" name="FileInfo.java" references="false" stamp="1695460156527" version="1.0"/>
+</session>

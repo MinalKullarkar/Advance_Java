@@ -1,0 +1,22 @@
+package com.jspiders.jdbc.opreation;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class JDBCSelectDynamically {
+	
+	private static Connection connection;
+	private static PreparedStatement preparedStatement;
+	private static ResultSet resultSet;
+	private static String query;
+	
+	public static void main(String[] args) {
+		
+	}
+	private static Connection openConnection() throws ClassNotFoundException {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		DriverManager.getConnection("jdbc:", query, query)
+	}
+}
