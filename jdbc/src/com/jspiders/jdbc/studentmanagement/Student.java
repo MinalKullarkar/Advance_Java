@@ -2,44 +2,61 @@ package com.jspiders.jdbc.studentmanagement;
 
 public class Student {
 
-	private static int id;
-	private static String name;
-	private static String email;
-	private static int age;
-	private static double fees;
+	private  int id;
+	private  String name;
+	private  String email;
+	private  int age;
+	private  double fees;
 	
-	
-	public static int getId() {
+	public int getId() {
 		return id;
 	}
-	public static void setId(int id) {
-		Student.id = id;
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public static String getName() {
+
+
+	public String getName() {
 		return name;
 	}
-	public static void setName(String name) {
-		Student.name = name;
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public static String getEmail() {
+
+
+	public String getEmail() {
 		return email;
 	}
-	public static void setEmail(String email) {
-		Student.email = email;
+
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public static int getAge() {
+
+
+	public int getAge() {
 		return age;
 	}
-	public static void setAge(int age) {
-		Student.age = age;
+
+	public void setAge(int age) {
+		this.age = age;
 	}
-	public static double getFees() {
+
+	public double getFees() {
 		return fees;
 	}
-	public static void setFees(double fees) {
-		Student.fees = fees;
+
+	public void setFees(double fees) {
+		this.fees = fees;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", email=" + email + ", age=" + age + ", fees=" + fees + "]";
+	}
 	
 }

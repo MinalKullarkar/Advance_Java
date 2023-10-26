@@ -77,11 +77,20 @@ public class StudentJDBC {
 			
 			while (resultSet.next()) {
 				Student student=new Student();
-				System.out.println(resultSet.getInt(1));
-				System.out.println(resultSet.getString(2));
-				System.out.println(resultSet.getString(3));
-				System.out.println(resultSet.getInt(4));
-				System.out.println(resultSet.getDouble(5));
+				//In these way we get a normar data
+//				System.out.println(resultSet.getInt(1));
+//				System.out.println(resultSet.getString(2));
+//				System.out.println(resultSet.getString(3));
+//				System.out.println(resultSet.getInt(4));
+//				System.out.println(resultSet.getDouble(5));
+				
+				//If we want to get a data in the form of arralist object
+				student.setId(resultSet.getInt(1));
+				student.setName(resultSet.getString(2));
+				student.setEmail(resultSet.getString(3));
+				student.setAge(resultSet.getInt(4));
+				student.setFees(resultSet.getInt(5));
+				
 				list.add(student);
 			}
 			
@@ -99,6 +108,74 @@ public class StudentJDBC {
 		}
 		
 		return list;
+	}
+	
+	public Student getStudentById(int id) {
+		Student student=new Student();
+		
+		try {
+			connection=openConnection();
+			query="SELECT * FROM student WHERE id=?";
+			preparedStatement=connection.prepareStatement(query);
+			preparedStatement.setInt(1, id);
+			resultSet=preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				student.setId(resultSet.getInt(1));
+				student.setName(resultSet.getString(2));
+				student.setEmail(resultSet.getString(3));
+				student.setAge(resultSet.getInt(4));
+				student.setFees(resultSet.getInt(5));
+				
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return student;
+		
+	}
+	public void deleteStudent(int id) {
+		
+		try {
+			connection=openConnection();
+			query="DELETE FROM student WHERE id=?";
+			preparedStatement=connection.prepareStatement(query);
+			preparedStatement.setInt(1, id);
+			int row=preparedStatement.executeUpdate();
+			System.out.println(row+" row(s) affected.");
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				closeConnection();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	public void updateStudent(int id,Scanner scanner) {
+		try {
+			connection=openConnection();
+			query="UPDATE student SET name=?,email=?,age=?,fees=?, WHERE id=?";
+			preparedStatement=connection.prepareStatement(query);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	private  Connection openConnection() throws ClassNotFoundException, SQLException {

@@ -1,5 +1,6 @@
 package com.jspiders.jdbc.studentmanagement;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -12,7 +13,7 @@ public class StudentMain {
 		StudentJDBC jdbc=new StudentJDBC();
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.println("Enter 1 to add student.\nEnter 2 to get All Student.");
+		System.out.println("Enter 1 to add student.\nEnter 2 to get All Student.\nEnter 3 to get student by id.\nEnter 4 to delete student.\nEnter 5 to update student data.");
 		
 		int choice=scanner.nextInt();
 		
@@ -27,8 +28,21 @@ public class StudentMain {
 			for (Object student : data) {
 				System.out.println(student);
 			}
-			
 			break;
+		}
+		case 3:{
+			System.out.println("Enter the student id");
+			Student data=jdbc.getStudentById(scanner.nextInt());
+			System.out.println(data);
+			break;
+		}
+		case 4:{
+			System.out.println("Enter studetn id to delete data.");
+			jdbc.deleteStudent(scanner.nextInt());
+			break;
+		}
+		case 5:{
+			
 		}
 		default:
 			System.out.println("Invalid Choice ");
