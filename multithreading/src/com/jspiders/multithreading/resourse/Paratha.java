@@ -9,13 +9,14 @@ public class Paratha {
 		if(numberOfParatha>availableParatha)
 		{
 			System.out.println(numberOfParatha+" Paratha's is not available...Please wait for some time...");
-		}
+		
 			try {
 				wait();
-			} catch (InterruptedException e) {
-				
+			} catch (InterruptedException e) 
+			{
 				e.printStackTrace();
 			}
+		}
 		availableParatha-=numberOfParatha;
 		System.out.println("Order for "+numberOfParatha+" paratha is successful" );
 		

@@ -12,7 +12,7 @@ public class JDBCInsert3 {
 	private static Driver driver;
 	private static Connection connection;
 	private static Statement statement;
-	private static String Query;
+	private static String query;
 	
 	public static void main(String[] args)  {
 		//Dynamically inserting queries with the help of scanner class.
@@ -41,8 +41,8 @@ public class JDBCInsert3 {
 			connection=openConnection();
 			statement=connection.createStatement();
 			//Dynamic query
-			Query="insert into student values("+id+",'"+name+"','"+email+"',"+age+","+fees+")";
-			int row=statement.executeUpdate(Query);
+			query="insert into student values("+id+",'"+name+"','"+email+"',"+age+","+fees+")";
+			int row=statement.executeUpdate(query);
 			System.out.println(row+" row(s) affected");
 			
 		} 

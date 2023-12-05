@@ -43,7 +43,7 @@ public class JDBCSelectDynamically {
 				// TODO: handle exception
 			}
 		}
-			
+			scanner.close();
 		}
 		
 			

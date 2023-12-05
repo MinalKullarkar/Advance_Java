@@ -12,8 +12,11 @@ public class StudentMain {
 		
 		StudentJDBC jdbc=new StudentJDBC();
 		Scanner scanner = new Scanner(System.in);
+		boolean flag=true;
 		
-		System.out.println("Enter 1 to add student.\nEnter 2 to get All Student.\nEnter 3 to get student by id.\nEnter 4 to delete student.\nEnter 5 to update student data.");
+		while (flag) {
+			
+		System.out.println("Enter 1 to add student.\nEnter 2 to get All Student.\nEnter 3 to get student by id.\nEnter 4 to delete student.\nEnter 5 to update student data.\nEnter 6 to exit.");
 		
 		int choice=scanner.nextInt();
 		
@@ -42,10 +45,19 @@ public class StudentMain {
 			break;
 		}
 		case 5:{
-			
+			System.out.println("Enter student ID to Update");
+			jdbc.updateStudent(scanner.nextInt(), scanner);
+			break;
+		}
+		case 6:{
+			System.out.println("Thank you");
+			flag=false;
+			break;
 		}
 		default:
 			System.out.println("Invalid Choice ");
+		}
+		
 		}
 		scanner.close();
 	}

@@ -77,7 +77,8 @@ public class StudentJDBC {
 			
 			while (resultSet.next()) {
 				Student student=new Student();
-				//In these way we get a normar data
+				
+				//In these way we get a normal data
 //				System.out.println(resultSet.getInt(1));
 //				System.out.println(resultSet.getString(2));
 //				System.out.println(resultSet.getString(3));
@@ -169,8 +170,28 @@ public class StudentJDBC {
 	public void updateStudent(int id,Scanner scanner) {
 		try {
 			connection=openConnection();
-			query="UPDATE student SET name=?,email=?,age=?,fees=?, WHERE id=?";
+			query="UPDATE student SET name=?,email=?,age=?,fees=? WHERE id=?";
 			preparedStatement=connection.prepareStatement(query);
+			
+			scanner.nextLine();
+			System.out.println("Enter student name.");
+			preparedStatement.setString(1, scanner.nextLine());
+			
+			System.out.println("Enter student email.");
+			preparedStatement.setString(2, scanner.nextLine());
+			
+			System.out.println("Enter student age");
+			preparedStatement.setInt(3,scanner.nextInt());
+			
+			System.out.println("Enter student fees");
+			preparedStatement.setDouble(4, scanner.nextDouble());
+			
+			preparedStatement.setInt(5, id);
+			
+			int row=preparedStatement.executeUpdate();
+			System.out.println(row+"row(s) affected");
+			
+			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
