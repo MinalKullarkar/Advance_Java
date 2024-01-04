@@ -20,12 +20,12 @@ public class PersonDAO {
 		entityTransaction.begin();
 		
 		AadharCard aadharCard=new AadharCard();
-		aadharCard.setAadharNumber(789654556);
+		aadharCard.setAadharNumber(789654897);
 		entityManager.persist(aadharCard);
 		
 		Person person=new Person();
-		person.setName("Pranay");
-		person.setEmail("pranay@gmail.com");
+		person.setName("Minal");
+		person.setEmail("minal@gmail.com");
 		person.setAadharCard(aadharCard);
 		entityManager.persist(person);
 		

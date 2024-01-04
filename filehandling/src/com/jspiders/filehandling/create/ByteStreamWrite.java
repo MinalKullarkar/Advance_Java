@@ -11,7 +11,7 @@ public class ByteStreamWrite {
 		if (file.exists()) {
 			System.out.println("File already exist.");
 			FileOutputStream fileOutputStream=new FileOutputStream(file);
-			fileOutputStream.write(500);
+			fileOutputStream.write(1000);
 			System.out.println("Data is added to the file");
 			fileOutputStream.close();
 			

@@ -69,6 +69,7 @@ public class EmployeeMain {
 		case 6:
 			System.out.println("Thank you!");
 			flag=false;
+		
 		default:
 			break;
 		}

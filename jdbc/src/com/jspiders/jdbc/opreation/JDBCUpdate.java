@@ -21,7 +21,7 @@ public class JDBCUpdate {
 		try {
 			connection=openConnection();
 			statement=connection.createStatement();
-			//delete
+			//Update
 			query="UPDATE student SET name ='Minal' where id=1";
 			int rows= statement.executeUpdate(query);
 			System.out.println(rows+" row(s) are affected.");

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.jspiders.studentmanagementsystem2.jdbc.StudentJDBC;
 import com.jspiders.studentmanagementsystem2.object.Student;
 
-public class DeleteStudent extends HttpServlet{
+@WebServlet("/delete_student")
+public class DeleteStudent extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -29,4 +31,5 @@ public class DeleteStudent extends HttpServlet{
 		requestDispatcher.forward(req, resp);
 
 	}
+
 }

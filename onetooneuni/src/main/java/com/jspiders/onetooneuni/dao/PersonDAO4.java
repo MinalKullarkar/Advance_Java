@@ -22,7 +22,7 @@ public class PersonDAO4 {
 		
 		//Update
 		Person person = entityManager.find(Person.class, 1);
-		person.setEmail("minalkullarkar@gmail.com");
+		person.setEmail("pranaykullarkar@gmail.com");
 		entityManager.persist(person);
 
 		

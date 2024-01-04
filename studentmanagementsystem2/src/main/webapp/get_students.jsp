@@ -76,7 +76,6 @@ a {
 			for (Student student : students) {
 			%>
 			<tr>
-
 				<td><%=student.getId()%></td>
 				<td><%=student.getName()%></td>
 				<td><%=student.getEmail()%></td>
