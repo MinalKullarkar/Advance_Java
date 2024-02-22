@@ -47,10 +47,5 @@ public class StudentService {
 		
 	}
 
-	public static void addAdmin(Admin admin) {
-		
-		
-	}
-
 	
 }

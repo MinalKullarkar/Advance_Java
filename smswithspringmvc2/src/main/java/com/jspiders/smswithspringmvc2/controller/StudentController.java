@@ -41,6 +41,7 @@ public class StudentController {
 		return "add_student";
 	}
 	
+	
 	@RequestMapping(path="/get_students")
 	public String getAllStudent(ModelMap modelMap,HttpSession httpSession) {
 		AdminPOJO admin=(AdminPOJO) httpSession.getAttribute("admin");

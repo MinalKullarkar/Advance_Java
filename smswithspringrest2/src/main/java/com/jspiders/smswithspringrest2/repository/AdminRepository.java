@@ -33,4 +33,9 @@ public class AdminRepository {
 		return admins;
 	}
 
+	public void logIn(Admin admin) {
+		
+		
+	}
+
 }

@@ -24,6 +24,19 @@ public class AdminService {
 		return adminRepository.getAllAdmins();
 		
 	}
+
+	public Admin logIn(Admin admin) {
+		Admin adminToBeLoggedIn=null;
+		List<Admin> allAdmins = adminRepository.getAllAdmins();
+		for (Admin admins : allAdmins) {
+			if (admins.getEmail().equals(admin.getEmail()) && admins.getPassword().equals(admin.getPassword())) {
+				adminToBeLoggedIn=admin;
+				break;
+			}
+		}
+		
+		return adminToBeLoggedIn;
+	}
 	
 	
 	

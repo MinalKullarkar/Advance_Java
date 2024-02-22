@@ -33,12 +33,26 @@ public class AdminController {
 		
 		return new ResponseEntity<AdminResponse>(adminResponse,HttpStatus.CREATED);
 	}
-//	public ResponseEntity<AdminResponse> getAdminByEmailToLogIn(String eamil){
-//		List<Admin> admins = adminService.getAllAdmins();
-//		if () {
-//			
-//		}
-//		return new ResponseEntity<AdminResponse>();
-//	}
+	
+	@PostMapping(path="login",produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<AdminResponse> logIn(@RequestBody Admin admin){
+	 Admin	adminToBeLoggedInWithPassEmail=adminService.logIn(admin);
+		if (adminToBeLoggedInWithPassEmail!=null) {
+			AdminResponse adminResponse=new AdminResponse();
+			adminResponse.setMessage("Logged In");
+			adminResponse.setAdmin(adminToBeLoggedInWithPassEmail);
+			adminResponse.setStatus(HttpStatus.FOUND.value());
+			
+			return new  ResponseEntity<AdminResponse>(adminResponse,HttpStatus.FOUND);
+		}
+		else {
+			AdminResponse adminResponse=new AdminResponse();
+			adminResponse.setMessage("Envalid email or password");
+			adminResponse.setAdmin(null);
+			adminResponse.setStatus(HttpStatus.NOT_FOUND.value());
+			return new ResponseEntity<AdminResponse>(adminResponse,HttpStatus.NOT_FOUND);
+		}
+		
+	}
 	
 }
